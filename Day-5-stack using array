@@ -1,0 +1,74 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define size 5
+int top=-1,stack[size];
+struct node
+{
+	int data;
+	struct node* next;
+}*n;
+
+int isfull()
+{
+	if(top==size-1)
+	{
+	return 1;
+	}
+	else 
+	return 0;
+}
+int push(int data)
+{
+	if(!isfull())
+	{
+		top=top+1;
+		stack[top]=data;
+	}
+	return data;
+}
+int isempty()
+{
+	if(top==-1)
+	return 1;
+	else 
+	return 0;
+}
+int pop(int data)
+{
+	if(! isempty())
+	{
+	data=stack[top];
+	top=top-1;
+}
+return data;
+}
+int peak()
+{
+	return stack[top];
+}
+void display()
+{
+	int i;
+	for(i=top;i>=0;i--)
+	{
+		printf("%d",stack[i]);
+		printf("\t");
+	}
+}
+int main()
+{
+	printf("192373024_akhilkumar\n");
+	push(9);
+	push(11);
+	push(20);
+	push(23);
+	printf("\nthe created array:\n  ");
+	display();
+	pop(23);
+	printf("\nthe elements after deletion:\n ");
+	display();
+	printf("\nthe elements in the array:\n");
+	display();
+		printf("\nthe peak element is:%d",peak());
+
+}
